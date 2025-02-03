@@ -1,0 +1,97 @@
+/* 次で始まるURL  https://gemini.google.com/ 　*/
+
+/*	span.bard-text{	*/
+/*	mat-icon{	*/
+/*	mat-icon.notranslate.google-symbols.mat-icon-no-color.ng-star-inserted{	*/
+/*	.sidenav-with-history-container.expanded {	*/
+/*	.sidenav-with-history-container ,.overflow-container{	*/
+/*	span.gmat-subtitle-2{	*/
+/*	:root .dark-theme .gmat-mdc-list .mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item:hover{	*/
+/*	.location-footer-name {	*/
+/*	mat-icon.notranslate.filled.location-icon.google-symbols.mat-icon-no-color{	*/
+/*	span.location-footer-atl-text{	*/
+/*	span.location-buttons-dot{	*/
+/*	div.mdc-snackbar__surface.ng-tns-c996321046-68{	*/
+/*	div.mat-mdc-snack-bar-label.mdc-snackbar__label{	*/
+/*	span.mdc-button__label{	*/
+/*	div.footer-container {	*/
+/*	.mat-mdc-unelevated-button{	*/
+/*	span.mat-mdc-button-touch-target{	*/
+/*	bard-mode-switcher{	*/
+/*	bard-sidenav-content{	*/
+/*	infinite-scroller{	*/
+/*	span.bard-hello{	*/
+/*	span.bard-question{	*/
+/*	div.prompt-container {	*/
+/*	div.prompt-container:hover {	*/
+/*	p.prompt-text-content{	*/
+/*	.user-query-container.edit-mode.ui-v2-enabled  mat-form-field   .mdc-text-field {	*/
+/*	.mat-mdc-menu-item, .mat-mdc-menu-item:visited, .mat-mdc-menu-item:link {	*/
+/*	div.mat-mdc-tooltip-trigger.conversation.selected{	*/
+/*	span.conversation-title.gmat-body-1{	*/
+/*	div.conversations-container   .conversation:hover{	*/
+/*	button.conversation-actions-menu-button{	*/
+/*	h1.title{	*/
+/*	span.gmat-subhead-2.show-more-button-text{	*/
+/*	button.show-more-button.mdc-button.mdc-button--unelevated.mat-mdc-unelevated-button.mat-unthemed.mat-mdc-button-base{	*/
+/*	upsell-button{	*/
+/*	h2.query-text{	*/
+/*	span.mat-panel-title-wrapper{	*/
+/*	span.ng-tns-c4150723369-11.ng-star-inserted{	*/
+/*	.draft-preview-label-chip {	*/
+/*	p {	*/
+/*	strong {	*/
+/*	ol  , ul{	*/
+/*	li::marker {	*/
+/*	a {	*/
+/*	a:hover{	*/
+/*	a:visited {	*/
+/*	a.traceable-link{	*/
+/*	a.traceable-link:hover{	*/
+/*	p.gmat-caption {	*/
+/*	.bottom-container{	*/
+/*	.mat-mdc-menu-content {	*/
+/*	div.response-container.ui-v2-enabled{	*/
+/*	.recitations-list-container.ng-star-inserted {	*/
+/*	h4.gmat-overline.header{	*/
+/*	h2{	*/
+/*	code {	*/
+/*	div.code-block-decoration.header.gmat-subtitle-1{	*/
+/*	div.code-block-decoration.footer.gmat-overline.hide-from-message-actions{	*/
+/*	span.hljs-keyword{	*/
+/*	span.hljs-comment{	*/
+/*	span.hljs-number{	*/
+/*	span.hljs-string{	*/
+/*	span.hljs-literal{	*/
+/*	span.hljs-built_in{	*/
+/*	span.hljs-title{	*/
+/*	span.hljs-params{	*/
+/*	span.hljs-meta-string{	*/
+/*	span.hljs-meta-keyword{	*/
+/*	span.hljs-meta{	*/
+/*	th{	*/
+/*	td{	*/
+/*	div.table-footer.hide-from-message-actions {	*/
+/*	.processing-state_container{	*/
+/*	 div.processing-state_ext-name_label{	*/
+/*	button.retry-without-tool-button.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base.gmat-mdc-button {	*/
+/*	button.retry-without-tool-button.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base.gmat-mdc-button:hover{	*/
+/*	span.mdc-button__label{	*/
+/*	button.expand-button.mdc-icon-button.mat-mdc-icon-button.gmat-mdc-button-with-prefix.mat-unthemed.mat-mdc-button-base.gmat-mdc-button:hover{	*/
+/*	div.tool-attribution-label.gmat-body-2{	*/
+/*	span.title{	*/
+/*	span.channel-name{	*/
+/*	span.channel-name:hover{	*/
+/*	span.description{	*/
+/*	span.youtube-tos{	*/
+/*	span.search-prompt{	*/
+/*	span.source-table-title{	*/
+/*	span.source-table-subtitle{	*/
+/*	span.mat-mdc-list-item-title.mdc-list-item__primary-text{	*/
+/*	span.source-row-owner{	*/
+/*	span.source-row-date{	*/
+
+
+/*	:root .light-theme { */ /*上のバナー 明るい色*/
+/*code.code-container{ コードコンテナ*/	
+/*span.bard-text{	　 左上のジェミニ*/
