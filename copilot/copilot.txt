@@ -1,3 +1,4 @@
+@-moz-document url-prefix("https://copilot.microsoft.com/") {
 main {
        /* background-color: transparent, !important;*/
         background: url(https://images-ng.pixai.art/images/orig/bd136c64-5f9a-47eb-a31c-e0374981bb8b);
@@ -5,3 +6,4 @@ main {
         background-size:auto;
         background-repeat: no-repeat;
     }
+}
