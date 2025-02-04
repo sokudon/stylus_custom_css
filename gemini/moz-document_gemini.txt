@@ -1,3 +1,10 @@
+/* ==UserStyle==
+@name           claude.ai/chat/
+@namespace      https://github.com/sokudon
+@version        1.0.0
+@description    A new userstyle
+@author         strmdn
+==/UserStyle== */
 @-moz-document url-prefix("https://gemini.google.com/") {
 /*‼️次で始まるURL https://gemini.google.com/  */
 :where(.theme-host) {  /* デフォの白背景削除 */

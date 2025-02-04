@@ -1,9 +1,9 @@
 /* ==UserStyle==
-@name           claude.ai/chat/db2bd6ab-61f4-41cc-b473-2239f76adc28
-@namespace      github.com/openstyles/stylus
+@name           claude.ai/chat/
+@namespace      https://github.com/sokudon
 @version        1.0.0
 @description    A new userstyle
-@author         Me
+@author         strmdn
 ==/UserStyle== */
 @-moz-document url-prefix("https://claude.ai/chat/") {
     .max-w-3xl {
