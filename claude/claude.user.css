@@ -1,16 +1,27 @@
 /* ==UserStyle==
-@name           claude.ai/chat/
-@namespace      https://github.com/sokudon
-@version        1.0.0
-@description    A new userstyle
-@author         strmdn
+@name         Claude.ai BGedit
+@namespace    Claude.ai BGedit
+@author       strmdn
+@description  change　BG data on your claude  Background image with Base64 JPEG by sokudon.s17.xrea.com/base64.html
+@version      20250207
 ==/UserStyle== */
-@-moz-document url-prefix("https://claude.ai/chat/") {
-    .max-w-3xl {
-        max-width: 64rem;
+@-moz-document url-prefix("https://claude.ai/chat") {
+    .flex-row-reverse {
+        /*アイコン */
+        background-color: #17f0cf26 !important
     }
-    .max-w-\[75ch\] {
-        max-width: 128ch;
+    .bg-bg-200 {
+        /*サイドメニュー */
+        background-color: #2e50d826 !important
+    }
+    .flex_col {
+        /*アイコン右上 */
+        background-color: #12e11321 !important
+    }
+
+    flex-1 {
+        /*アイコン右上 */
+        background-color: #c0b71726 !important
     }
 
     [data-theme=claude],
