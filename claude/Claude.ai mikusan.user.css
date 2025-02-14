@@ -2,8 +2,8 @@
 @name         Claude.ai BGedit
 @namespace    Claude.ai mikusan
 @author       strmdn
-@description  change　BG data on your claude @description    Background image with Base64 JPEG by sokudon.s17.xrea.com/base64.html
-@version      20250207
+@description  change　BG data on your claude  Background image with Base64 JPEG by sokudon.s17.xrea.com/base64.html
+@version      20250214
 ==/UserStyle== */
 @-moz-document url-prefix("https://claude.ai/chat") {
     .flex-row-reverse {
@@ -45,6 +45,12 @@
         opacity: 0.8;
     }
 
+    /*↓背景絵のアルファ */
+    .sticky,
+    .overflow-x-hidden {
+        background: #ffffff6e;
+    }
+    
     .overflow-hidden {
         /*   .tracking-tight   w-full  .overflow-hidden   .flex-1
         opacity: 0.7;*/
