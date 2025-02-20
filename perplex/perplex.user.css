@@ -1,0 +1,38 @@
+/* ==UserStyle==
+@name         www.perplexity.ai
+@version      20250220.12.24
+@namespace    https://userstyles.world/user/strmdn
+@description  perprexity
+@author       strmdn
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.perplexity.ai/") {
+:root {
+    --background-color-50: #00000000;
+    --background-color-100: #00000000;
+    --background-color-200: #00000000;
+    --background-color-300: #00000000;
+    --text-color-100: #3d10c4d9;
+    --text-color-200: #8510c4d9;
+}
+body {
+    background: url(https://chichi-pui.imgix.net/uploads/post_images/d45c3341-7f23-4b49-87d5-7aa69596dc75/4691b10d-c995-4255-866e-b13d4928fee8_1200x.jpeg?auto=format&lossless=0);
+    color: #7ef9e4c7;
+    background-size: cover !important;
+    /* Optional: to make text darker */
+}
+
+
+/* 背景画像の透過度調整（視認性向上） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .44) !important;
+    /* 背景を40%暗く */
+    z-index: -1;
+}
+}

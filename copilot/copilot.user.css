@@ -1,16 +1,115 @@
 /* ==UserStyle==
-@name           claude.ai/chat/
-@namespace      https://github.com/sokudon
-@version        1.0.0
-@description    A new userstyle
-@author         strmdn
+@name         copilot
+@namespace    userstyles.world
+@author       strmdn
+@version     2025-02-20
 ==/UserStyle== */
+
 @-moz-document url-prefix("https://copilot.microsoft.com/") {
+/* body に背景画像を設定 */
+body {
+    background: url(https://images-ng.pixai.art/images/orig/bd136c64-5f9a-47eb-a31c-e0374981bb8b) no-repeat center center fixed !important;
+    background-size: cover !important;
+    background-color: transparent !important;
+
+    font-family: Ginto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    color: color: #50e7d87a !important;
+}
+
+/* main とその子要素の背景を半透明に */
 main {
-       /* background-color: transparent, !important;*/
-        background: url(https://images-ng.pixai.art/images/orig/bd136c64-5f9a-47eb-a31c-e0374981bb8b);
-        background: rgba(255, 255, 255, 0.1)  /* 透過度を調整 */
-        background-size:auto;
-        background-repeat: no-repeat;
-    }
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    /* 半透明白 */
+}
+
+/* 背景グラデーションや単色を半透明に */
+.absolute.size-full,
+.bg-gradient-chat-light,
+.dark\:bg-midnight-850,
+.dark\:bg-none {
+    background: rgba(255, 255, 255, 0.1) !important;
+    /* 半透明白 */
+}
+
+/* チャットメッセージの背景を半透明に */
+.bg-spot-peach-300\/50,
+/* ユーザーメッセージ */
+.dark\:bg-midnight-750/* Copilot メッセージ */
+{
+    background-color: rgba(255, 192, 203, 0.3) !important;
+    /* 半透明ピンク */
+}
+
+/* 入力エリアのコンテナを半透明に */
+.relative.overflow-hidden.backdrop-blur-2xl {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    /* 半透明白 */
+    backdrop-filter: blur(10px) !important;
+    /* ブラー効果を維持 */
+}
+
+.relative.overflow-hidden.backdrop-blur-2xl::before,
+.relative.overflow-hidden.backdrop-blur-2xl::after {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    /* 半透明に */
+    opacity: 0.5 !important;
+    /* 透過度調整 */
+}
+
+/* その他の背景要素を半透明に */
+.bg-white\/90,
+.dark\:bg-midnight-900\/80,
+.bg-white\/70,
+.dark\:bg-slate-450\/30,
+.bg-transparent,
+.shadow-composer-input {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    /* 半透明白 */
+}
+
+/* ボタンやアイコンの背景を半透明に */
+button.bg-white\/70,
+button.dark\:bg-slate-450\/30,
+button.bg-transparent {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 入力テキストエリアを半透明に */
+textarea#userInput {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* テキストの視認性を向上 */
+.text-foreground-800,
+.text-black,
+.dark\:text-white,
+.font-ligatures-none {
+    color: #ffffff !important;
+    /* 白に変更 */
+    /*text-shadow: 0 0 4px rgba(0, 0, 0, 0.5) !important;*/
+    /* 影で視認性確保 */
+}
+
+/* 背景画像の透過度調整（視認性向上） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4) !important;
+    /* 背景を40%暗く */
+    z-index: -1;
+}
+
+/*コード内*/
+span {}
+p {}
+code {}
+
+.dark\:bg-background-static-900:is([data-theme=dark] *),
+.bg-background-static-850 {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
 }

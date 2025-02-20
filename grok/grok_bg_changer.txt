@@ -1,0 +1,87 @@
+javascript:(function() {
+  var cssContent = ":root{--b:#d390e9e8;--f:#d390e9cc;--st:rgba(0,0,0,.3);--sb:transparent;--i:#fcfcfc;--n:#00000078;--h:#00000021}.fb{font-family:Font Text,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.ts{font-size:13px}input,.tb{--b:#2369c6e0}:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}*{scrollbar-width:thin;scrollbar-color:var(--st) var(--sb)}.bg{background-color:#b428d4cc}body{background-color:#00000000;background-size:auto}.ph{color:#fff;text-align:center;margin-bottom:10px;font-size:16px}.ph a{color:#fff;text-decoration:underline}";
+  var s = document.createElement("style");
+  s.textContent = cssContent;
+  document.head.appendChild(s);
+
+  var p = document.createElement("div");
+  p.style.cssText = "position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--b);padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px";
+  p.className = "fb";
+
+  var h = document.createElement("div");
+  h.className = "ph";
+  var textNode = document.createTextNode("GROK_BG_CHANGER by ");
+  var link = document.createElement("a");
+  link.href = "https://github.com/sokudon";
+  link.textContent = "strmdn";
+  h.appendChild(textNode);
+  h.appendChild(link);
+
+  var u = document.createElement("input");
+  u.type = "text";
+  u.placeholder = "画像URL";
+  u.style.cssText = "width:100%;margin-bottom:10px;display:block;background:var(--n);color:#fff";
+  u.className = "tb";
+  u.onmouseover = function(){this.style.background="var(--h)"};
+  u.onmouseout = function(){this.style.background="var(--n)"};
+
+  var f = document.createElement("input");
+  f.type = "file";
+  f.accept = "image/*";
+  f.style.cssText = "width:100%;margin-bottom:10px;display:block;background:var(--n);color:#fff";
+  f.className = "tb";
+
+  var b = document.createElement("button");
+  b.textContent = "変換";
+  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.className = "tb bg";
+  b.onclick = function(){
+    document.body.removeChild(p);
+    if(f.files && f.files[0]){
+      var file = f.files[0];
+      if(file.size > 5*1024*1024){
+        alert("ファイルサイズが大きすぎます（5MB以下にしてください）。");
+        document.body.appendChild(p);
+        return;
+      }
+      var r = new FileReader();
+      var t = setTimeout(function(){alert("ファイル読み込みがタイムアウトしました。");},10000);
+      r.onload = function(e){
+        clearTimeout(t);
+        var d = e.target.result;
+        document.body.style.background = `url(${d})`;
+      };
+      r.onerror = function(){
+        clearTimeout(t);
+        alert("ファイルの読み込みに失敗しました。");
+      };
+      r.readAsDataURL(file);
+    } else if(u.value.trim()){
+      var i = new Image();
+      i.crossOrigin = "anonymous";
+      i.onload = function(){
+        var c = document.createElement("canvas");
+        c.width = i.width;
+        c.height = i.height;
+        var x = c.getContext("2d");
+        x.drawImage(i,0,0);
+        var d = c.toDataURL("image/png");
+        document.body.style.background = `url(${d})`;
+      };
+      i.onerror = function(){
+        document.body.style.background = `url(${u.value.trim()})`;
+      };
+      i.src = u.value.trim();
+    } else {
+      alert("URLかファイルを指定してください！");
+      document.body.appendChild(p);
+    }
+  };
+
+  p.appendChild(h);
+  p.appendChild(u);
+  p.appendChild(f);
+  p.appendChild(b);
+  document.body.appendChild(p);
+  u.focus();
+})();
