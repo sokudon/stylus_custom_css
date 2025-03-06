@@ -1,0 +1,27 @@
+/* ==UserStyle==
+@name           x.com
+@namespace      x.com
+@version        1.0.0
+@description   x.com BG edit bgconverter: https://ss1.xrea.com/sokudon.s17.xrea.com/base64.html  github: https://github.com/sokudon
+@author         strmdn
+==/UserStyle== */
+
+@-moz-document domain("x.com") {
+body {
+    /* https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium  grok 公式*/
+    /* https://pbs.twimg.com/media/GkpcJ9CbkAQ0G5_?format=jpg&name=900x900 */
+    /* https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900 謎こ*/
+    background-image: url('https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-color: transparent !important;
+}
+.r-kemksi,
+.r-175oi2r,
+.r-yfoy6g {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    /* コンテンツの背景を半透明に */
+}
+}

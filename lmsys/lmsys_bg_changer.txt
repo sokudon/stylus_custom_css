@@ -1,0 +1,187 @@
+javascript:(function() {
+  var cssContent =`
+:root {
+
+    --bg: #fff0;
+    --col: #1f293700;
+    --bg-dark: #0b0f1900;
+    --col-dark: #f3f4f600;
+
+    /* テキストボックス*/
+    --border-color-primary: #ced2d505;
+
+    --neutral-50: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    
+    /* text not selected*/
+    --neutral-400: #00000078;
+    
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
+    --neutral-700: #374151;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+    --neutral-950: #0b0f19;
+
+    --background-fill-primary: #27df9966;
+    --background-fill-secondary: #2e62d261;
+}
+
+
+element.style {
+    --chatbot-body-text-size: 20px;
+}
+body {
+
+    color: #00000000;
+    background-color: #00000000;
+}
+
+.md,
+.svelte-8tpqd2,
+.chatbot,
+.prose,
+.message,
+.message-row,
+.bubble-wrap {
+
+    background-color: #00000000;
+}
+.svelte-sa48pu,
+.svelte-vt1mxs {
+
+    background: #0000001a;
+}
+
+.wrap,
+.default,
+.contain,
+.full {
+
+    background: #eeebeb1a;
+}
+
+
+.svelte-au1olv,
+.svelte-1sk0pyu,
+.svelte-12cmxck {
+    background: #0000;
+}
+.tabs {
+
+    background: #0000;
+}
+
+.svelte-vt1mxs,
+.gap {
+
+    background: #67d48b00;
+}
+
+.svelte-sa48pu,
+.stretch {
+
+
+    background: #67d4c700;
+}
+.svelte-1oa6fve {
+
+    background: #c3d467ab;
+}
+
+.main {
+    background: #bb785f6e;
+}
+`;
+    
+    
+    var s = document.createElement("style");
+  s.textContent = cssContent;
+  document.head.appendChild(s);
+
+  var p = document.createElement("div");
+  p.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  .gradio-container {
+  background:var(--b);}
+  padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px`;
+  p.className = "fb";
+
+  var h = document.createElement("div");
+  h.className = "ph";
+  var textNode = document.createTextNode("PERPLE_BG_CHANGER by ");
+  var link = document.createElement("a");
+  link.href = "https://github.com/sokudon";
+  link.textContent = "strmdn";
+  h.appendChild(textNode);
+  h.appendChild(link);
+
+  var u = document.createElement("input");
+  u.type = "text";
+  u.placeholder = "画像URL";
+  u.style.cssText = "width:100%;margin-bottom:10px;display:block;background:var(--n);color:#fff";
+  u.className = "tb";
+  u.onmouseover = function(){this.style.background="var(--h)"};
+  u.onmouseout = function(){this.style.background="var(--n)"};
+
+  var f = document.createElement("input");
+  f.type = "file";
+  f.accept = "image/*";
+  f.style.cssText = "width:100%;margin-bottom:10px;display:block;background:var(--n);color:#fff";
+  f.className = "tb";
+
+  var b = document.createElement("button");
+  b.textContent = "変換";
+  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.className = "tb bg";
+  b.onclick = function(){
+    document.body.removeChild(p);
+    if(f.files && f.files[0]){
+      var file = f.files[0];
+      if(file.size > 5*1024*1024){
+        alert("ファイルサイズが大きすぎます（5MB以下にしてください）。");
+        document.body.appendChild(p);
+        return;
+      }
+      var r = new FileReader();
+      var t = setTimeout(function(){alert("ファイル読み込みがタイムアウトしました。");},10000);
+      r.onload = function(e){
+        clearTimeout(t);
+        var d = e.target.result;
+        document.body.style.background = `url(${d})`;
+      };
+      r.onerror = function(){
+        clearTimeout(t);
+        alert("ファイルの読み込みに失敗しました。");
+      };
+      r.readAsDataURL(file);
+    } else if(u.value.trim()){
+      var i = new Image();
+      i.crossOrigin = "anonymous";
+      i.onload = function(){
+        var c = document.createElement("canvas");
+        c.width = i.width;
+        c.height = i.height;
+        var x = c.getContext("2d");
+        x.drawImage(i,0,0);
+        var d = c.toDataURL("image/png");
+        document.body.style.background = `url(${d})`;
+      };
+      i.onerror = function(){
+        document.body.style.background = `url(${u.value.trim()})`;
+      };
+      i.src = u.value.trim();
+    } else {
+      alert("URLかファイルを指定してください！");
+      document.body.appendChild(p);
+    }
+  };
+
+  p.appendChild(h);
+  p.appendChild(u);
+  p.appendChild(f);
+  p.appendChild(b);
+  document.body.appendChild(p);
+  u.focus();
+})();

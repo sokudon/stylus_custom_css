@@ -1,0 +1,90 @@
+javascript:(function() {
+  var cssContent = `
+      :where(.theme-host) {
+    /* デフォの白背景削除 */
+    --gem-sys-color--surface: transparent, !important;
+}
+
+body {
+    /*上のバナー 明るい色*/
+    background-color: rgba(255, 255, 255, 0.562);
+}
+.main-content {
+    /*子を透過する */
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.chat-app {
+    /*opacity: 0.3;  全体を透過 */
+    /*backdrop-filter: blur(5px); */
+    /* 背景をぼかす (adjust the value as needed) */
+    background-color: transparent, !important;
+    background-size: auto;
+            }`;
+    
+    
+    var s = document.createElement("style");
+  s.textContent = cssContent;
+  document.head.appendChild(s);
+
+  var p = document.createElement("div");
+  p.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  .chat-app{
+  background:var(--b);}
+  padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px`;
+  p.className = "fb";
+
+  var h = document.createElement("div");
+  h.className = "ph";
+  var textNode = document.createTextNode("GEMINI_BG_CHANGER by ");
+  var link = document.createElement("a");
+  link.href = "https://github.com/sokudon";
+  link.textContent = "strmdn";
+  h.appendChild(textNode);
+  h.appendChild(link);
+
+
+  var f = document.createElement("input");
+  f.type = "file";
+  f.accept = "image/*";
+  f.style.cssText = "width:100%;margin-bottom:10px;display:block;background:var(--n);color:#fff";
+  f.className = "tb";
+
+  var b = document.createElement("button");
+  b.textContent = "変換";
+  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.className = "tb bg";
+  b.onclick = function(){
+    document.body.removeChild(p);
+    if(f.files && f.files[0]){
+      var file = f.files[0];
+      if(file.size > 5*1024*1024){
+        alert("ファイルサイズが大きすぎます（5MB以下にしてください）。");
+        document.body.appendChild(p);
+        return;
+      }
+      var r = new FileReader();
+      var t = setTimeout(function(){alert("ファイル読み込みがタイムアウトしました。");},10000);
+      r.onload = function(e){
+        clearTimeout(t);
+        var d = e.target.result;
+        document.body.style.background = `url(${d})`;
+      };
+      r.onerror = function(){
+        clearTimeout(t);
+        alert("ファイルの読み込みに失敗しました。");
+      };
+      r.readAsDataURL(file);
+    }
+    else {
+      alert("URLかファイルを指定してください！");
+      document.body.appendChild(p);
+    }
+  };
+
+  p.appendChild(h);
+  p.appendChild(f);
+  p.appendChild(b);
+  document.body.appendChild(p);
+  f.focus();
+})();

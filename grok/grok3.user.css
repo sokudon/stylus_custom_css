@@ -1,3 +1,11 @@
+/* ==UserStyle==
+@name           grok
+@namespace      grok
+@version        1.0.0
+@description    grok BG edit bgconverter: https://ss1.xrea.com/sokudon.s17.xrea.com/base64.html  github: https://github.com/sokudon
+@author         strmdn
+==/UserStyle== */
+
 @-moz-document url-prefix("https://grok.com/") {
 :root {
     /*情報そーすのオーバーレイ*/
