@@ -1,26 +1,36 @@
 javascript:(function() {
   var cssContent = `
-      :where(.theme-host) {
-    /* デフォの白背景削除 */
-    --gem-sys-color--surface: transparent, !important;
+/*‼️次で始まるURL https://gemini.google.com/  */
+:where(.theme-host) {
+    /* デフォルトの白背景削除 */
+    --gem-sys-color--surface: transparent !important;
+    /* カンマ削除 */
 }
 
 body {
-    /*上のバナー 明るい色*/
+    /* 上のバナー 明るい色 */
     background-color: rgba(255, 255, 255, 0.562);
+    /* 背景画像を指定（HTML のインライン画像を利用する前提） */
+    /* background-image: url('data:image/jpeg;base64,...'); */
+    /* 必要に応じて追加 */
+    background-size: cover !important;
+    background-position: center;
+    /* 中央配置 */
+    background-repeat: no-repeat;
+    /* 繰り返しなし */
 }
+
 .main-content {
-    /*子を透過する */
+    /* 子を透過する */
     background-color: rgba(255, 255, 255, 0.562);
 }
 
 .chat-app {
-    /*opacity: 0.3;  全体を透過 */
-    /*backdrop-filter: blur(5px); */
-    /* 背景をぼかす (adjust the value as needed) */
-    background-color: transparent, !important;
-    background-size: auto;
-            }`;
+    /* opacity: 0.3;  全体を透過（必要に応じてコメント解除） */
+    /* backdrop-filter: blur(5px); 背景をぼかす（必要に応じてコメント解除） */
+    background-color: transparent !important;
+}
+`;
     
     
     var s = document.createElement("style");
@@ -29,7 +39,7 @@ body {
 
   var p = document.createElement("div");
   p.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  .chat-app{
+  body{
   background:var(--b);}
   padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px`;
   p.className = "fb";
@@ -52,7 +62,7 @@ body {
 
   var b = document.createElement("button");
   b.textContent = "変換";
-  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.style.cssText = "width:100%;background:var(--f);color:#000";
   b.className = "tb bg";
   b.onclick = function(){
     document.body.removeChild(p);

@@ -11,10 +11,13 @@ base64で好きな画像にry（）
 https://ss1.xrea.com/sokudon.s17.xrea.com/
 http://unzu127xp.web.fc2.com/base64.html
 
+
+2025/03/08
+変換が白で見づらいので黒に変更
+
 2025/03/06
 chatgpt/gemini/claude/grok/xcom/lmsys/perplesive/copilot
 ブックマークレット拡張についか,geminiとclaudeはドメイン制限が厳しいのでファイルのみ
-ブックマークレットはtxtファイルです
 
 user.css　chome/firefox/edget用あどおん　stylusようです
 ***.js  tampermonkey用です

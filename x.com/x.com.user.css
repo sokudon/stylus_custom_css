@@ -8,10 +8,10 @@
 
 @-moz-document domain("x.com") {
 body {
-    /* https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium  grok 公式*/
-    /* https://pbs.twimg.com/media/GkpcJ9CbkAQ0G5_?format=jpg&name=900x900 */
+    /* https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium  grok 公式ブラックホール*/
+    /* https://pbs.twimg.com/media/GkpcJ9CbkAQ0G5_?format=jpg&name=900x900  grok 公式白い方*/
     /* https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900 謎こ*/
-    background-image: url('https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium') !important;
+    background-image: url('https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;

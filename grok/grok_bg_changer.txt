@@ -33,7 +33,7 @@ javascript:(function() {
 
   var b = document.createElement("button");
   b.textContent = "変換";
-  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.style.cssText = "width:100%;background:var(--f);color:#000";
   b.className = "tb bg";
   b.onclick = function(){
     document.body.removeChild(p);

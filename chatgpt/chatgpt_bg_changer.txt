@@ -1,6 +1,6 @@
 javascript:(function() {
-  var cssContent = `main {
-        /*背景透過*/
+  var cssContent = `    main {
+        /* 背景透過 */
         background: #ffffff7d;
     }
 
@@ -23,31 +23,35 @@ javascript:(function() {
         --red-700: #b91c1c;
         --brand-purple: #ab68ff;
         --yellow-900: #927201;
-
-        /* TIP: Disable the code Word Wrapping to ignore the 2 base64 images */
         --header-height: 3rem;
-
-        /* Light Theme  */
-        /* 
-         * Light background source: https://www.pexels.com/photo/snow-covered-mountain-surrounded-with-clouds-4179793/
-         * Change the background HERE! (for light theme) 
-         */
+        
         --backgroud-repeat: repeat x;
+        /* typo: "backgroud" -> "background" に修正すべき */
         --selected-chat-gradient: linear-gradient(135deg, #b8e5ff0f, #d9d9d9, #d9d9d9 100%);
         --selected-gpt-gradient: linear-gradient(135deg, #7cffde08, #ebebeb 100%);
         --main-surface-secondary: #d0d0cf;
         --surface-primary: #fff;
         --bg-selection: #7ad28d;
-        --text-color:#000;
+        --text-color: #000;
         --text-gray-color: 100, 100, 100;
         --text-dark-color: 22, 22, 22;
         --text-color-selection: #191919;
         --surface-message-gpt: 210, 210, 210;
-
-        /*タグのハイライト*/
         --text-primary: var(--gray-950);
-        /*スクロールバー*/
         --main-surface-tertiary: var(--gray-100);
+    }
+
+    body {
+        color: rgb(var(--text-color));
+        border-left: solid 3px #000 !important;
+        
+        background-size: cover;
+        /* 画面全体をカバー */
+        background-position: center;
+        /* top center; HDゑ用　スマフォはcenterでちょい隠れるのもあり*/
+        /* 上部を優先表示 */
+        background-repeat: no-repeat;
+        min-height: 100vh;
     }
 
     .markdown .bg-gray-800 span,
@@ -63,23 +67,6 @@ javascript:(function() {
     ::-moz-selection {
         background: var(--bg-selection);
         color: var(--text-color-selection);
-    }
-
-    body {
-        color: rgb(var(--text-color));
-        border-left: solid 3px #000 !important;
-    }
-
-    .dark\:text-gray-500:is(.dark *) {
-        color: rgb(var(--text-color) / var(--tw-text-opacity));
-    }
-
-    /* Chat background */
-    body > div.relative > div.max-w-full:nth-child(2),
-    body > div.flex:not(.relative) {
-        background-image: var(--background);
-        background-size: cover;
-        background-position: center;
     }
 
     /* Header */
@@ -409,7 +396,11 @@ javascript:(function() {
   document.head.appendChild(s);
 
   var p = document.createElement("div");
-  p.style.cssText = "position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--b);padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px";
+  p.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+   body {
+   background:var(--b);
+   }
+   padding:20px;border:1px solid #ccc;z-index:10000;width:90%;max-width:300px`;
   p.className = "fb";
 
   var h = document.createElement("div");
@@ -437,7 +428,7 @@ javascript:(function() {
 
   var b = document.createElement("button");
   b.textContent = "変換";
-  b.style.cssText = "width:100%;background:var(--f);color:#fff";
+  b.style.cssText = "width:100%;background:var(--f);color:#000";
   b.className = "tb bg";
   b.onclick = function(){
     document.body.removeChild(p);
