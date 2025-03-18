@@ -1,0 +1,49 @@
+/* ==UserStyle==
+@name       げんすぱ～く
+@version    20250318.13.51
+@namespace  ?
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.genspark.ai/") {
+body {
+    color: #3528be;
+    background-image: url("https://img.chichipui.com/7e447a0d-6de4-4913-9749-1e40ed564342");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.search-home {
+    color: #25368d;
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+}
+.header {
+    color: #212e6d;
+    background: rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
+    .search-home .search-input-wrapper {
+        color: #885e4e;
+    }
+}
+
+/* 背景画像の透過度調整（視認性向上） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .51) !important;
+    /* 背景を40%暗く */
+    z-index: -1;
+}
+}
