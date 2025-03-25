@@ -10,11 +10,30 @@ javascript:(function() {
     background-attachment: fixed !important;
     background-color: transparent !important;
 }
-.r-kemksi,
-.r-175oi2r,
-.r-yfoy6g {
+
+
+/* タイムライン全体のコンテナを透過 */
+div[data-testid="primaryColumn"] {
+    background-color: rgba(0, 0, 0, .24) !important;
+}
+
+/* タイムライン内のセクションや子要素も透過 */
+div[data-testid="primaryColumn"] .css-175oi2r,
+div[data-testid="primaryColumn"] section,
+div[data-testid="primaryColumn"] div {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* ポスト自体の背景も透過 */
+article[role="article"] .css-175oi2r,
+article[role="article"] .r-14lw9ot {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* サイドバーやヘッダーは半透明のまま */
+div[data-testid="sidebarColumn"] .css-175oi2r {
     background-color: rgba(0, 0, 0, 0.7) !important;
-    /* コンテンツの背景を半透明に */
+}
 }`;
     
     
