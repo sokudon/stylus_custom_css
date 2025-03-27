@@ -1,45 +1,124 @@
 /* ==UserStyle==
-@name           x.com
-@namespace      x.com
-@version        1.0.0
-@description   x.com BG edit bgconverter: https://ss1.xrea.com/sokudon.s17.xrea.com/base64.html  github: https://github.com/sokudon
-@author         strmdn
+@name       x.com/home
+@version    20250306.12.50
+@namespace  ?
 ==/UserStyle== */
-
 @-moz-document url-prefix("https://x.com/") {
-body {
-    /* https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium  */
-    /* https://pbs.twimg.com/media/GkpcJ9CbkAQ0G5_?format=jpg&name=900x900 */
-    /* https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900 */
-    background: url('https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    background-color: transparent !important;
-}
+
+    /* メニュー全体（「リスト」「プレミアム」～「設定とプライバシー」）を透過 */
+    div[role="menu"],
+    div[role="menu"] .css-175oi2r,
+    div[role="menu"] .r-14lw9ot,
+    div[role="menu"] div,
+    div[role="menu"] a {
+        background-color: rgba(224, 110, 175, .24) !important;
+    }
+
+    /* メニュー内の個々のリンクやアイテムを透過 */
+    div[role="menu"] a[href*="lists"],
+    div[role="menu"] a[href*="premium"],
+    div[role="menu"] a[href*="bookmarks"],
+    div[role="menu"] a[href*="monetization"],
+    div[role="menu"] a[href*="verified-orgs"],
+    div[role="menu"] a[href*="ads"],
+    div[role="menu"] a[href*="jobs"],
+    div[role="menu"] a[href*="spaces"],
+    div[role="menu"] a[href*="settings"] {
+        background-color: rgba(209, 156, 233, 0) !important;
+    }
+
+    /* 設定ページ全体を透過 */
+    div[data-testid="primaryColumn"],
+    div[data-testid="primaryColumn"] .r-14lw9ot,
+    div[data-testid="primaryColumn"] section,
+    div[data-testid="primaryColumn"] div,
+    div[data-testid="primaryColumn"] .css-175oi2r {
+
+        background-color: rgba(255, 255, 255, 0) !important;
+    }
 
 
-/* タイムライン全体のコンテナを透過 */
-div[data-testid="primaryColumn"] {
-    background-color: rgba(0, 0, 0, .24) !important;
-}
+    div[data-testid="primaryColumn"] .css-175oi2r[role="main"] {
 
-/* タイムライン内のセクションや子要素も透過 */
-div[data-testid="primaryColumn"] .css-175oi2r,
-div[data-testid="primaryColumn"] section,
-div[data-testid="primaryColumn"] div {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
+        background-color: rgba(231, 114, 199, 0) !important;
+    }
 
-/* ポスト自体の背景も透過 */
-article[role="article"] .css-175oi2r,
-article[role="article"] .r-14lw9ot {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
+    /* 設定ページの白い背景を強制的に透過 */
+    .r-14lw9ot {
+        background-color: rgba(220, 50, 220, 0) !important;
+    }
 
-/* サイドバーやヘッダーは半透明のまま */
-div[data-testid="sidebarColumn"] .css-175oi2r {
-    background-color: rgba(0, 0, 0, 0.7) !important;
-}
+    /* メニューやポップアップの背景を透過（冗長性を確保） */
+    div[data-testid="SheetDialog"],
+    div[aria-label="設定"],
+    div[aria-label="もっと見る"],
+    div[data-testid="sidebarColumn"] .css-175oi2r[role="menu"] {
+        background-color: rgba(228, 38, 123, .37) !important;
+    }
+
+    /* ツイート入力エリアのカスタマイズ */
+    div[data-testid="tweetTextarea_0"] {
+        background-color: rgba(209, 70, 171, 0.4) !important;
+        /* 薄いピンク紫（透過度を少し高めに） */
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        /* 白い枠線を追加 */
+        border-radius: 10px !important;
+        /* 角を丸く */
+        padding: 10px !important;
+        /* 内側の余白 */
+        color: #ffffff !important;
+        /* 文字色を白に */
+    }
+
+    /* 入力エリアのプレースホルダーテキスト */
+    div[data-testid="tweetTextarea_0"]::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+        /* プレースホルダーを薄白に */
+    }
+
+    /* 「ポストする」ボタンのカスタマイズ */
+    div[data-testid="tweetButtonInline"],
+    div[data-testid="tweetButton"] {
+        background-color: rgba(209, 70, 171, 0.6) !important;
+        /* ボタンを薄いピンク紫に */
+        border-radius: 20px !important;
+        /* 丸みを強く */
+        color: #ffffff !important;
+        /* 文字色を白に */
+        padding: 8px 16px !important;
+        /* ボタンのサイズ調整 */
+        transition: background-color 0.3s ease !important;
+        /* ホバー時のアニメーション */
+    }
+
+    /* ボタンのホバー時 */
+    div[data-testid="tweetButtonInline"]:hover,
+    div[data-testid="tweetButton"]:hover {
+        background-color: rgba(237, 99, 175, .83) !important;
+        /* ホバーで濃く */
+    }
+
+    /* 周囲のコンテナ（必要に応じて調整） */
+    div[data-testid="tweetTextarea_0"] .css-175oi2r,
+    div[data-testid="tweetButtonInline"] .css-175oi2r {
+        background-color: rgba(0, 0, 0, 0) !important;
+        /* コンテナは完全透過 */
+    }
+
+    main {
+        /*メインフローのみ色を変える*/
+        background-color: rgba(209, 70, 171, .75) !important;
+    }
+
+    body {
+        /* https://pbs.twimg.com/media/GkgI9OtXAAI7t97?format=jpg&name=medium  */
+        /* https://pbs.twimg.com/media/GkpcJ9CbkAQ0G5_?format=jpg&name=900x900 */
+        /* https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900 */
+        background: url('https://pbs.twimg.com/media/GlVJnvZa0AAjO3x?format=jpg&name=900x900') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+        background-color: transparent !important;
+    }
 }
