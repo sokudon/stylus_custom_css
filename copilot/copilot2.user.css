@@ -6,115 +6,229 @@
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://copilot.microsoft.com/") {
-/* body に背景画像を設定 */
-body {
-    /*
-    https://img.chichipui.com/282dc4b3-5eae-4a30-ab54-fa4b708b8b7d
-https://img.chichipui.com/3663a32b-010e-4252-b6a9-6e199d22ae0e  
-    */
-    background: url(https://img.chichipui.com/3663a32b-010e-4252-b6a9-6e199d22ae0e  ) no-repeat center center fixed !important;
-    background-size: cover !important;
-    background-position: top center !important; /* center でやや上*/
-    background-color: transparent !important;
-
-    font-family: Ginto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
-    color: color: #50e7d87a !important;
-}
-
-/* main とその子要素の背景を半透明に */
-main {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    /* 半透明白 */
-}
-
-/* 背景グラデーションや単色を半透明に */
-.absolute.size-full,
-.bg-gradient-chat-light,
-.dark\:bg-midnight-850,
-.dark\:bg-none {
-    background: rgba(255, 255, 255, 0.1) !important;
-    /* 半透明白 */
-}
-
-/* チャットメッセージの背景を半透明に */
-.bg-spot-peach-300\/50,
-/* ユーザーメッセージ */
-.dark\:bg-midnight-750/* Copilot メッセージ */
-{
-    background-color: rgba(255, 192, 203, 0.3) !important;
-    /* 半透明ピンク */
-}
-
-/* 入力エリアのコンテナを半透明に */
-.relative.overflow-hidden.backdrop-blur-2xl {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    /* 半透明白 */
-    backdrop-filter: blur(10px) !important;
-    /* ブラー効果を維持 */
-}
-
-.relative.overflow-hidden.backdrop-blur-2xl::before,
-.relative.overflow-hidden.backdrop-blur-2xl::after {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    /* 半透明に */
-    opacity: 0.5 !important;
-    /* 透過度調整 */
-}
-
-/* その他の背景要素を半透明に */
-.bg-white\/90,
-.dark\:bg-midnight-900\/80,
-.bg-white\/70,
-.dark\:bg-slate-450\/30,
-.bg-transparent,
-.shadow-composer-input {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    /* 半透明白 */
-}
-
-/* ボタンやアイコンの背景を半透明に */
-button.bg-white\/70,
-button.dark\:bg-slate-450\/30,
-button.bg-transparent {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-/* 入力テキストエリアを半透明に */
-textarea#userInput {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* テキストの視認性を向上 */
-.text-foreground-800,
-.text-black,
-.dark\:text-white,
-.font-ligatures-none {
-    color: #ffffff !important;
-    /* 白に変更 */
-    /*text-shadow: 0 0 4px rgba(0, 0, 0, 0.5) !important;*/
-    /* 影で視認性確保 */
-}
-
-/* 背景画像の透過度調整（視認性向上） */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .74) !important;
-    /* 背景を40%暗く */
-    z-index: -1;
-}
-
-/*コード内*/
-span {}
-p {}
-code {}
-
-.dark\:bg-background-static-900:is([data-theme=dark] *),
-.bg-background-static-850 {
-    background-color: rgba(0, 0, 0, 0.4) !important;
-}
-}
+    /* --- Copilot 背景画像修正案 --- */
+    /* 最上位コンテナ (#app) に背景画像を設定 */
+    #app {
+        background: url(https://img.chichipui.com/3663a32b-010e-4252-b6a9-6e199d22ae0e) no-repeat center center fixed !important;
+        background-size: cover !important;
+        background-position: top center !important;
+        background-color: transparent !important;
+        /* 念のため透明に */
+        position: relative;
+        /* ::before の基準にする */
+        z-index: 0;
+        /* ::before より手前に */
+    }
+    
+    /* 背景画像の透過度調整（視認性向上） */
+    #app::before {
+        content: "";
+        position: fixed;
+        /* 画面全体に固定 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6) !important;
+        /* 好みに合わせて透過度を調整 (0.6 = 60%の黒) */
+        z-index: -1;
+        /* 背景画像より後ろに配置 */
+        pointer-events: none;
+        /* クリック操作を妨げない */
+    }
+    
+    /* body のデフォルト背景を削除 */
+    body {
+        background: none !important;
+        /* 元のフォント指定は維持 */
+        font-family: Ginto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    }
+    
+    /* main や他の主要コンテナ要素の背景を透明に */
+    main,
+    .absolute.size-full,
+    .bg-sidebar-light,
+    /* サイドバー ライトモード */
+    .dark\:bg-sidebar-dark,
+    /* サイドバー ダークモード */
+    .bg-stone-150,
+    /* 基本背景色 ライトモード */
+    .dark\:bg-midnight-850,
+    /* 基本背景色 ダークモード */
+    .bg-gradient-chat-light,
+    /* チャット背景グラデーション ライト */
+    .dark\:bg-gradient-chat-dark,
+    /* チャット背景グラデーション ダーク */
+    .dark\:bg-none {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    
+    /* チャットメッセージの背景を半透明に (色は元のCSSを参考に調整) */
+    .bg-spot-peach-300\/50,
+    /* ユーザーメッセージ ライト */
+    .dark\:bg-midnight-750/* Copilot メッセージ ダーク */
+    {
+        background-color: rgba(255, 192, 203, 0.5) !important;
+        /* 半透明ピンク (透過度を調整) */
+    }
+    
+    /* コードブロックの背景 */
+    .dark\:bg-background-static-900:is([data-theme=dark] *),
+    .bg-background-static-850 {
+        background-color: rgba(0, 0, 0, 0.6) !important;
+        /* 半透明黒 */
+    }
+    
+    /* 入力エリアのコンテナを半透明に */
+    .relative.overflow-hidden.backdrop-blur-2xl {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        /* 半透明白 (透過度を調整) */
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    /* 入力エリアの疑似要素の背景を削除 */
+    .relative.overflow-hidden.backdrop-blur-2xl::before,
+    .relative.overflow-hidden.backdrop-blur-2xl::after {
+        background: none !important;
+    }
+    
+    /* 入力テキストエリア */
+    textarea#userInput {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+        /* テキスト色を白に */
+    }
+    textarea#userInput::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+        /* プレースホルダーの色 */
+    }
+    
+    /* その他のUI要素の背景を調整 */
+    .bg-white\/90,
+    .dark\:bg-midnight-900\/80,
+    .bg-white\/70,
+    .dark\:bg-slate-450\/30,
+    .bg-transparent,
+    .shadow-composer-input {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        /* 半透明白 */
+    }
+    
+    /* ボタン類の背景 */
+    button.bg-white\/70,
+    button.dark\:bg-slate-450\/30,
+    button.bg-transparent,
+    .hover\:bg-black\/5:hover,
+    .active\:bg-black\/3:active,
+    .dark\:hover\:bg-white\/8:hover,
+    .dark\:active\:bg-white\/5:active {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    button.hover\:bg-white:hover {
+        /* ホバー時の白背景ボタン */
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    
+    /* テキストの視認性を向上 */
+    .text-foreground-800,
+    .text-black,
+    .dark\:text-white,
+    .font-ligatures-none,
+    p,
+    /* 段落テキスト */
+    h2,
+    /* 見出し */
+    h3,
+    h4,
+    div[data-content="user-message"] div,
+    /* ユーザーメッセージテキスト */
+    div[data-content="ai-message"] div/* AIメッセージテキスト */
+    {
+        color: #ffffff !important;
+        /* 白に変更 */
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.7) !important;
+        /* 影で視認性確保 */
+    }
+    
+    /* 特定の要素の色調整 (必要に応じて追加・変更) */
+    /* 引用元ボタンの数字 */
+    .flex.items-center.justify-center.rounded-md.bg-spot-peach-300\/60,
+    .dark\:bg-slate-700 {
+        color: #111 !important;
+        /* 暗い色に変更 */
+        text-shadow: none !important;
+    }
+    .flex.items-center.justify-center.rounded-md.bg-spot-peach-300\/60:hover,
+    .dark\:bg-slate-700:hover {
+        color: #000 !important;
+    }
+    
+    /* 引用元ボタンのテキスト部分 */
+    a.text-xs span:last-child {
+        color: #fff !important;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.7) !important;
+    }
+    a.text-xs:hover span:last-child {
+        color: #eee !important;
+    }
+    
+    
+    /* サイドバーのテキストなど */
+    .text-foreground-650,
+    /* 日付など */
+    .text-2xs-strong/* 会話リストの日付区分など */
+    {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.6) !important;
+    }
+    
+    /* 会話リストの選択中アイテム */
+    .max-h-12.cursor-pointer.bg-black\/5,
+    .dark\:max-h-12.cursor-pointer.dark\:bg-white\/8 {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* ボタン内のアイコンの色 */
+    button svg path {
+        fill: #ffffff !important;
+        /* アイコンを白に */
+    }
+    
+    /* リンクの色 */
+    a {
+        color: #a8dff5 !important;
+        /* やや明るい水色 */
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.7) !important;
+    }
+    a:hover {
+        color: #c0e8ff !important;
+        text-decoration: underline;
+    }
+    
+    /* コードブロック内のテキスト色 */
+    code,
+    code span {
+        color: inherit !important;
+        /* 親要素のスタイルを継承（白＋影） */
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.7) !important;
+    }
+    
+    /* 特定のシンタックスハイライトの色を調整 (必要な場合) */
+    code .hljs-string,
+    code .hljs-meta-string {
+        color: #90EE90 !important;
+        /* 文字列をライトグリーンに */
+    }
+    code .hljs-keyword,
+    code .hljs-built_in {
+        color: #ADD8E6 !important;
+        /* キーワードをライトブルーに */
+    }
+    code .hljs-comment {
+        color: #B0B0B0 !important;
+        /* コメントをグレーに */
+        font-style: italic;
+    }
+    }
