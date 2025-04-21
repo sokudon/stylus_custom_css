@@ -1,0 +1,2 @@
+because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://assets.grok.com  https://pbs.twimg.com https://imgs.search.brave.com https://abs.twimg.com https://coin-images.coingecko.com https://snworksceo.imgix.net https://storage.googleapis.com https://*.googleapis.com".
+
