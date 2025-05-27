@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         gemini tampermokey css
+// @name         suno tampermokey css
 // @namespace    http://tampermonkey.net/
 // @version      2025/05/28
 // @description  try to take over the world!
 // @author       You
-// @match        *://*.gemini.google.com/*
+// @match        *://*.suno.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.com
 // @grant        GM_addStyle
 // ==/UserScript==
