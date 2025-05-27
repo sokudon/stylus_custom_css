@@ -12,7 +12,7 @@
 GM_addStyle(`
     :where(.theme-host) {
     /* デフォの白背景削除 */
-    --gem-sys-color--surface: transparent, !important;
+    --gem-sys-color--surface: rgba(255, 255, 255, .07) !important;
 }
 
 body {

@@ -3,7 +3,7 @@ javascript:(function() {
 /*‼️次で始まるURL https://gemini.google.com/  */
 :where(.theme-host) {
     /* デフォルトの白背景削除 */
-    --gem-sys-color--surface: transparent !important;
+    --gem-sys-color--surface: rgba(255, 255, 255, .07) !important;
     /* カンマ削除 */
 }
 
