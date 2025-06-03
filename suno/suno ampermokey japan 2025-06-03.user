@@ -1,0 +1,97 @@
+// ==UserScript==
+// @name         Suno AI Library Page Japanese Translation
+// @namespace    http://tampermonkey.net/
+// @version      1.3
+// @description  Translate Suno AI library page to Japanese, ensuring all buttons and labels are preserved
+// @author       You
+// @match        https://suno.com/me*
+// @match        https://suno.com/create*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+// 翻訳対象のメニュー項目（セレクタと翻訳のペア）
+    const translations = [
+        { selector: 'a[href="/"]', text: 'ホーム' }, // Home
+        { selector: 'a[href="/create"]', text: '作成' }, // Create
+        { selector: 'a[href="/library"]', text: 'ライブラリ' }, // Library
+        { selector: 'a[href="/explore"]', text: '探索' }, // Explore
+        { selector: 'input[placeholder="Search"]', placeholder: '検索' }, // Search
+        { selector: 'span:contains("Notifications")', text: '通知' }, // Notifications
+        { selector: 'span:contains("View Profile")', text: 'プロフィールを見る' }, // View Profile
+        { selector: 'span:contains("Edit Profile")', text: 'プロフィールを編集' }, // Edit Profile
+        { selector: 'span:contains("Manage Account")', text: 'アカウント管理' }, // Manage Account
+        { selector: 'span:contains("Sign Out")', text: 'サインアウト' }, // Sign Out
+        { selector: 'span:contains("Lyrics")', text: '歌詞' }, // Lyrics
+        { selector: 'span:contains("Auto")', text: '自動' }, // Auto
+        { selector: 'span:contains("Write Lyrics")', text: '歌詞を書く' }, // Write Lyrics
+        { selector: 'span:contains("Instrumental")', text: 'インストゥルメンタル' }, // Instrumental
+        { selector: 'span:contains("Full Song")', text: 'フルソング' }, // Full Song
+        { selector: 'span:contains("By Line")', text: 'ラインごと' }, // By Line
+        { selector: 'span:contains("Style Description")', text: 'スタイルの説明' }, // Style Description
+        { selector: 'span:contains("Exclude Styles")', text: '除外するスタイル' }, // Exclude Styles
+        { selector: 'span:contains("Persona")', text: 'ペルソナ' }, // Persona
+        { selector: 'span:contains("More Options")', text: 'その他のオプション' }, // More Options
+        { selector: 'span:contains("Song Title")', text: '曲のタイトル' }, // Song Title
+        { selector: 'span:contains("Workspace")', text: 'ワークスペース' }, // Workspace
+        { selector: 'span:contains("Save Prompt")', text: 'プロンプトを保存' }, // Save Prompt
+        { selector: 'span:contains("Clear All")', text: 'すべてクリア' }, // Clear All
+        { selector: 'span:contains("Upgrade")', text: 'アップグレード' }, // Upgrade
+        { selector: 'span:contains("Invite friends")', text: '友達を招待' }, // Invite friends
+        { selector: 'span:contains("What\'s new?")', text: '新着情報' } // What's new?
+    ];
+
+    // テキストを安全に置き換える関数
+    function translateMenu() {
+        translations.forEach(item => {
+            let elements;
+            if (item.selector.includes(':contains')) {
+                // :contains 擬似セレクタをシミュレート
+                const text = item.selector.match(/:contains\(["'](.*)["']\)/)[1];
+                elements = Array.from(document.querySelectorAll('span, a, button, label')).filter(el => el.textContent.trim() === text);
+            } else {
+                elements = document.querySelectorAll(item.selector);
+            }
+
+            elements.forEach(element => {
+                if (item.text && element.textContent.trim() !== item.text) {
+                    element.textContent = item.text;
+                }
+                if (item.placeholder && element.placeholder !== item.placeholder) {
+                    element.placeholder = item.placeholder;
+                }
+            });
+        });
+    }
+
+    // 初回読み込み時に実行
+    window.addEventListener('load', translateMenu);
+
+    // 動的変更に対応
+    const observer = new MutationObserver(() => {
+        translateMenu();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // ボタンの表示を保証するCSS　 //作成普通
+    //const style = document.createElement('style');
+    //style.textContent = `
+    //    a[href="/create"], button, span, label {
+    //        display: inline-block !important;
+    //        visibility: visible !important;
+    //    }
+    //`;
+
+    //作成巨大化
+    const style = document.createElement('style');
+style.textContent = `
+    a[href="/create"] {
+        font-size: 1.1em;
+        background-color: #7f7f7f;
+        padding: 5px;
+    }
+`;
+    document.head.appendChild(style);
+})();
