@@ -1,3 +1,10 @@
+/* ==UserStyle==
+@name       lmarena.ai
+@version    20250213.12.52
+@namespace  ?
+==/UserStyle== */
+
+@-moz-document domain("lmarena.ai") {
 /* ルート変数で背景の透過色を定義 */
 :root {
     --background: rgba(0, 0, 0, 0);
@@ -78,8 +85,4 @@ table {
     background-color: transparent !important;
     /* 強制的に透過 */
 }
-
-
-
-
 }
