@@ -1,99 +1,81 @@
 javascript:(function() {
   var cssContent =`
 :root {
+    --background: rgba(0, 0, 0, 0);
+    --text-primary: rgba(254, 254, 254, .97);
+    --text-secondary: rgb(255, 251, 251);
+    --surface-primary: rgba(0, 0, 0, 0);
+    --surface-secondary: 2 rgba(0, 0, 0, 0);
+    --sidebar-background: rgba(0, 0, 0, 0);
+    --sidebar-foreground: rgba(0, 0, 0, 0);
 
-    --bg: #fff0;
-    --col: #1f293700;
-    --bg-dark: #0b0f1900;
-    --col-dark: #f3f4f600;
-
-    /* テキストボックス*/
-    --border-color-primary: #ced2d505;
-
-    --neutral-50: #f9fafb;
-    --neutral-100: #f3f4f6;
-    --neutral-200: #e5e7eb;
-    --neutral-300: #d1d5db;
-    
-    /* text not selected*/
-    --neutral-400: #00000078;
-    
-    --neutral-500: #6b7280;
-    --neutral-600: #4b5563;
-    --neutral-700: #374151;
-    --neutral-800: #1f2937;
-    --neutral-900: #111827;
-    --neutral-950: #0b0f19;
-
-    --background-fill-primary: #27df9966;
-    --background-fill-secondary: #2e62d261;
+    --interactive-active: rgba(0, 0, 0, 0);
+    --interactive-normal: rgba(0, 0, 0, 0);
 }
-
-
-element.style {
-    --chatbot-body-text-size: 20px;
+.bg-surface-primary {
+    background-color: rgba(0, 0, 0, .47);
 }
 body {
 
-    color: #00000000;
-    background-color: #00000000;
+    /* 背景画像のURLを指定 */
+    background-size: cover;
+    /* 画像を画面全体にフィットさせる */
+    background-position: center;
+    /* 画像を中央に配置 */
+    background-repeat: no-repeat;
+    /* 画像の繰り返しを防止 */
+    background-attachment: fixed;
+    /* スクロールしても背景を固定 */
 }
 
-.md,
-.svelte-8tpqd2,
-.chatbot,
-.prose,
-.message,
-.message-row,
-.bubble-wrap {
-
-    background-color: #00000000;
+/* Overview内のテーブルとそのコンテナを透過 */
+.leaderboard-container,
+.table-container,
+table,
+table th,
+table td {
+    background: var(--background) !important;
+    /* 完全透過、特異性を高める */
+    border: none;
+    /* 枠線を削除 */
 }
-.svelte-sa48pu,
-.svelte-vt1mxs {
-
-    background: #0000001a;
-}
-
-.wrap,
-.default,
-.contain,
-.full {
-
-    background: #eeebeb1a;
+/* テーブルのテキストの視認性を確保 */
+table th,
+table td {
+    color: rgb(7, 230, 238);
+    /* テキストをカスタムプロパティで設定 */
 }
 
-
-.svelte-au1olv,
-.svelte-1sk0pyu,
-.svelte-12cmxck {
-    background: #0000;
-}
-.tabs {
-
-    background: #0000;
+/* ヘッダーやナビゲーションの背景を調整 */
+header,
+nav,
+.navbar {
+    background: var(--background) !important;
+    /* 半透明の背景 */
+    color: rgb(247, 247, 247);
 }
 
-.svelte-vt1mxs,
-.gap {
-
-    background: #67d48b00;
+/* ボタンやリンクのスタイルをカスタムプロパティで調整 */
+a,
+button {
+    background: var(--background) !important;
+    color: hsl(var(--interactive-on-cta));
+    border-radius: 4px;
 }
 
-.svelte-sa48pu,
-.stretch {
-
-
-    background: #67d4c700;
-}
-.svelte-1oa6fve {
-
-    background: #c3d467ab;
+a:hover,
+button:hover {
+    background: hsl(var(--interactive-cta-hover), 0.27);
 }
 
-.main {
-    background: #bb785f6e;
+/* 競合する背景スタイルを上書き */
+.table-container,
+.leaderboard-container,
+table {
+    background-color: transparent !important;
+    /* 強制的に透過 */
 }
+
 `;
     
     
@@ -110,7 +92,7 @@ body {
 
   var h = document.createElement("div");
   h.className = "ph";
-  var textNode = document.createTextNode("PERPLE_BG_CHANGER by ");
+  var textNode = document.createTextNode("LMSYS_BG_CHANGER by ");
   var link = document.createElement("a");
   link.href = "https://github.com/sokudon";
   link.textContent = "strmdn";
