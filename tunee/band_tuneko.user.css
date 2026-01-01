@@ -1,0 +1,112 @@
+/* ==UserStyle==
+@name           Tunee Background Transparent
+@namespace      strmdn
+@version        2026-01-01
+@description    Tuneeの背景を透過させ、ビデオ制作やオーバーレイに適した状態にします。
+@author         Gemini
+==/UserStyle== */
+@-moz-document url-prefix("https://www.tunee.ai/") {
+
+    .text-primary {
+        color: #141415;
+    }
+
+    body:before {
+        content: "";
+        position: fixed;
+        /* 画面全体に固定 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5) !important;
+        /* 好みに合わせて透過度を調整 (0.6 = 60%の黒) */
+        z-index: -1;
+        /* 背景画像より後ろに配置 */
+        pointer-events: none;
+        /* クリック操作を妨げない */
+    }
+
+    /* 全体背景の完全透過 */
+    body {
+        background-color: transparent !important;
+        background-image: url(https://pbs.twimg.com/media/G9kLfKKakAAbwiq?format=jpg&name=4096x4096) !important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    /* 背後で光っているグラデーション装飾を非表示 */
+    div[data-sentry-component="GradientBackground"] {
+        display: none !important;
+    }
+
+    /* ヘッダーの透過 */
+    header {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* ターゲット要素の通常時設定 */
+    /* クラス名に含まれる特殊記号 [ ] # をバックスラッシュでエスケープしています */
+    div.flex-none.h-16.rounded-\[10px\].flex.items-center {
+        /* 通常時：完全に透明にする場合 */
+        background-color: transparent !important;
+
+        /* もし特定の透過PNG画像を背景に敷きたい場合は、下のコメントアウトを外してURLを入れてください */
+        /* background-image: url("透過PNGのURL") !important; */
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+    }
+
+    /* ターゲット要素のホバー時設定 (md:hover:bg-[#EEEEEE] の上書き) */
+    div.flex-none.h-16.rounded-\[10px\].flex.items-center:hover {
+        /* ここにホバー時の好きな色を指定してください */
+        /* 背景画像と馴染ませるなら、RGBAでの指定がおすすめです */
+        background-color: rgba(114, 216, 204, .69) !important;
+
+        /* 背景画像（透過PNG）をホバー時に消したくない場合は background-image を維持 */
+        transition: background-color 0.2s ease;
+    }
+
+    div[data-sentry-component="ConversationContainer"],
+    div[class*="md:h-full flex flex-col"] {
+        background-color: transparent !important;
+        --background-global: transparent !important;
+    }
+
+    /* 各種カード・コンテンツエリアの透過設定 */
+    /* 完全透明にすると文字が見えないため、薄く色を載せています */
+    .bg-contrast,
+    [data-slot="tabs-list"],
+    div[data-sentry-component="Content"],
+    div[data-sentry-component="MusicProjectCardItem"],
+    div[data-sentry-component="CaseCard"] {
+        background-color: rgba(148, 198, 201, .80) !important;
+        /* 背景ぼかし*/
+        backdrop-filter: blur(2px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: none !important;
+    }
+
+    /* 入力エリア（チャットボックス）の透過 */
+    div[data-sentry-component="Root"] > div {
+        background-color: rgba(245, 245, 245, 0.5) !important;
+        backdrop-filter: blur(2px) !important;
+    }
+
+    /* サイドナビゲーション（タブ）の背景 */
+    [role="tablist"] {
+        background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* テキストの視認性確保（必要に応じて） */
+    h1,
+    h2,
+    h3,
+    h5,
+    p,
+    span {
+        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
+    }
+}
