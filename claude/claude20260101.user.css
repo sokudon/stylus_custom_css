@@ -1,0 +1,76 @@
+/* ==UserStyle==
+@name           claude_2026-01-01fixed
+@namespace      01
+@version       2026-01-01
+@description    Claudeの背景透過と背景画像設定の修正版
+@author         Your Name
+==/UserStyle== */
+@-moz-document url-prefix("https://claude.ai/") {
+    .text-text-100 {
+        --tw-text-opacity: 1;
+        color: #121313;
+    }
+    
+    /*画像の変更 */
+    div.min-h-full {
+        background-size: cover !important;
+        background-position: center !important;
+        /* ↓ これを追加することで、スクロールしても画像が拡大されず画面に固定されます */
+        background-attachment: fixed !important;
+        /* 背景画像の上に黒い半透明の膜を重ねます */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(https://pbs.twimg.com/media/G9kvX1WasAAHniB?format=jpg&name=900x900);
+    }
+
+    /* 2. メインコンテナの透過 */
+    .root,
+    .flex.min-h-full.w-full,
+    main,
+    .bg-bg-100,
+    .bg-bg-000 {
+        background-color: rgba(0, 0, 0, 0) !important;
+        background: rgba(0, 0, 0, 0) !important;
+    }
+
+    /* 3. サイドメニューの透過 (rgbaで指定することで透過度を調整できます) */
+    .z-sidebar nav,
+    .bg-bg-200 {
+        background-color: rgba(66, 224, 226, .15) !important;
+        /* 元の #2e50d826 相当 */
+    }
+
+    /* 4. メッセージバブルの透過と色 (直接background-colorを上書きします) */
+    /* ユーザーのメッセージ */
+    .font-user-message {
+        background-color: rgba(225, 191, 91, 0.9) !important;
+    }
+    /* Claudeの返信 */
+    .font-claude-message {
+        background-color: rgba(240, 161, 91, 0.9) !important;
+    }
+
+    /* 5. タイポの修正 */
+    .flex-col {
+        /* flex_col を修正 */
+        background-color: rgba(18, 225, 19, 0) !important;
+    }
+
+    .flex-1 {
+        /* flex-1 にドットを追加 */
+        background-color: rgba(192, 183, 23, 0) !important;
+    }
+
+    /* 6. コードブロックの透過 */
+    .code-block__code {
+        opacity: 0.8 !important;
+    }
+
+    /* 7. 不要なオーバーレイの非表示 (グリッド線など) */
+    .pointer-events-none.absolute.inset-0 {
+        display: none !important;
+    }
+    /*↓背景絵のアルファ*/
+    .overflow-hidden {
+        background: #fff0;
+    }
+
+}
