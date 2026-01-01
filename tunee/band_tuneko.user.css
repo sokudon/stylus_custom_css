@@ -8,7 +8,11 @@
 @-moz-document url-prefix("https://www.tunee.ai/") {
 
     .text-primary {
-        color: #141415;
+        color: #004f40;  
+        /* color/60が文字色() */
+    }
+    root{
+    --primary: 0 0% 90%;
     }
 
     body:before {
@@ -63,7 +67,7 @@
     div.flex-none.h-16.rounded-\[10px\].flex.items-center:hover {
         /* ここにホバー時の好きな色を指定してください */
         /* 背景画像と馴染ませるなら、RGBAでの指定がおすすめです */
-        background-color: rgba(114, 216, 204, .69) !important;
+        background-color: rgba(94, 191, 138, .69) !important;
 
         /* 背景画像（透過PNG）をホバー時に消したくない場合は background-image を維持 */
         transition: background-color 0.2s ease;
@@ -82,7 +86,7 @@
     div[data-sentry-component="Content"],
     div[data-sentry-component="MusicProjectCardItem"],
     div[data-sentry-component="CaseCard"] {
-        background-color: rgba(148, 198, 201, .80) !important;
+        background-color: rgba(170, 233, 231, .8) !important;
         /* 背景ぼかし*/
         backdrop-filter: blur(2px) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -91,7 +95,7 @@
 
     /* 入力エリア（チャットボックス）の透過 */
     div[data-sentry-component="Root"] > div {
-        background-color: rgba(245, 245, 245, 0.5) !important;
+        background-color: rgba(124, 120, 120, .5) !important;
         backdrop-filter: blur(2px) !important;
     }
 
@@ -107,6 +111,6 @@
     h5,
     p,
     span {
-        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
+        text-shadow: 0px 0px 4px rgba(255, 255, 255, .07);
     }
 }
