@@ -36,10 +36,10 @@
 
   /* メインコンテンツの外枠カード（透明度調整） */
   .relative.flex.w-full.grow.flex-col {
-    background-color: rgba(0, 0, 0, .21) !important;
+    background-color: rgba(238, 234, 234, .33) !important;
     backdrop-filter: blur(1px) !important; /* 背景ぼかし効果 */
-    -webkit-backdrop-filter: blur(12px) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    -webkit-backdrop-filter: blur(1px) !important;
+    border-color: rgba(255, 255, 255, .21) !important;
   }
 
   /* サイドバー背景 */
@@ -55,22 +55,22 @@
   /* Ask Producer... 入力エリア */
   .bg-bg-2.relative.rounded-md,
   .rounded-md.border.transition-all.bg-bg-1 {
-    background-color: rgba(20, 20, 20, 0.6) !important;
-    backdrop-filter: blur(8px) !important;
+    background-color: rgba(20, 20, 20, .31) !important;
+    backdrop-filter: blur(1px) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
   }
 
   /* 楽曲カード / スターターカード */
   .group\/card,
   [role="button"] > .relative.overflow-hidden {
-    background-color: rgba(0, 0, 0, 0.4) !important;
+    background-color: rgba(0, 0, 0, .28) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(4px) !important;
     transition: background-color 0.2s ease, transform 0.2s ease !important;
   }
 
   .group\/card:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, .05) !important;
   }
 
   /* ===================================================
@@ -78,8 +78,8 @@
      =================================================== */
   #player,
   #player .bg-wrapper {
-    background-color: rgba(10, 10, 10, 0.75) !important;
-    backdrop-filter: blur(16px) !important;
+    background-color: rgba(10, 10, 10, .12) !important;
+    backdrop-filter: blur(3px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
@@ -89,7 +89,7 @@
      =================================================== */
   /* テキストのシャドウ補正 */
   h1, h2, h3, p, span, a, button {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .81);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .24);
   }
 
   /* 検索入力テキスト等 */
@@ -98,6 +98,6 @@
   }
 
   textarea::placeholder {
-    color: rgba(255, 255, 255, .24) !important;
+    color: rgba(255, 255, 255, .45) !important;
   }
 }
