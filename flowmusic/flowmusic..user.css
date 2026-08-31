@@ -1,0 +1,103 @@
+/* ==UserStyle==
+@name           Flow Music Background Transparent
+@namespace      github.com/openstyles/stylus
+@version        2026-08-31
+@description    Flow Musicの背景を透過して背景画像を透過表示するスタイル
+@author         Custom_strmdn by gemini
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.flowmusic.app/") {
+
+  /* ===================================================
+     1. 背景画像の設定
+     ※ URLや背景の設定はお好みで変更してください
+     =================================================== */
+  body, 
+  #__next, 
+  .bg-wrapper {
+    background-image: url("https://i.imgur.com/jldZzr5.jpeg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+  }
+
+  /* ===================================================
+     2. 全体コンテナ・背景透過処理
+     =================================================== */
+  /* サイドバー・メイン枠 */
+  nav,
+  main,
+  .bg-bg-1,
+  .bg-bg-2,
+  .bg-bg-3 {
+    background-color: transparent !important;
+  }
+
+  /* メインコンテンツの外枠カード（透明度調整） */
+  .relative.flex.w-full.grow.flex-col {
+    background-color: rgba(0, 0, 0, .21) !important;
+    backdrop-filter: blur(1px) !important; /* 背景ぼかし効果 */
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* サイドバー背景 */
+  nav.group\/navbar {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  /* ===================================================
+     3. プロンプト入力バー・カード要素の調整
+     =================================================== */
+  /* Ask Producer... 入力エリア */
+  .bg-bg-2.relative.rounded-md,
+  .rounded-md.border.transition-all.bg-bg-1 {
+    background-color: rgba(20, 20, 20, 0.6) !important;
+    backdrop-filter: blur(8px) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* 楽曲カード / スターターカード */
+  .group\/card,
+  [role="button"] > .relative.overflow-hidden {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(4px) !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .group\/card:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ===================================================
+     4. プレイヤーバー（下部固定）
+     =================================================== */
+  #player,
+  #player .bg-wrapper {
+    background-color: rgba(10, 10, 10, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ===================================================
+     5. 視認性向上のためのテキスト・可読性補正
+     =================================================== */
+  /* テキストのシャドウ補正 */
+  h1, h2, h3, p, span, a, button {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .81);
+  }
+
+  /* 検索入力テキスト等 */
+  textarea, input {
+    color: #ffffff !important;
+  }
+
+  textarea::placeholder {
+    color: rgba(255, 255, 255, .24) !important;
+  }
+}
